@@ -32,6 +32,9 @@ const io = new Server(server, {
     : {
         origin: '*',
       },
+  // allowEIO3: true,
+  // transports: ['websocket'],
+  // path:'/socket.io/'
 });
 
 if (!CONFIG.disable_integrations) {

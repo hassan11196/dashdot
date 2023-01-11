@@ -23,15 +23,15 @@ export const CONFIG: Config = {
   fs_virtual_mounts: lst(penv('FS_VIRTUAL_MOUNTS') ?? ''),
   disable_integrations: penv('DISABLE_INTEGRATIONS') === 'true',
 
-  show_host: penv('SHOW_HOST') === 'true',
+  show_host: true,
   custom_host: penv('CUSTOM_HOST'),
   page_title: penv('PAGE_TITLE') ?? 'dash.',
   use_imperial: penv('USE_IMPERIAL') === 'true',
   enable_storage_split_view: penv('ENABLE_STORAGE_SPLIT_VIEW') === 'true',
-  always_show_percentages: penv('ALWAYS_SHOW_PERCENTAGES') === 'true',
+  always_show_percentages: true,
 
   widget_list: lst(
-    penv('WIDGET_LIST') ?? 'os,cpu,storage,ram,network'
+    penv('WIDGET_LIST') ?? 'os,cpu,storage,ram,network,gpu'
   ) as any[],
   os_label_list: lst(penv('OS_LABEL_LIST') ?? 'os,arch,up_since') as any[],
   cpu_label_list: lst(
@@ -51,7 +51,7 @@ export const CONFIG: Config = {
   os_widget_grow: numNull(penv('OS_WIDGET_GROW')) ?? 2.5,
   os_widget_min_width: numNull(penv('OS_WIDGET_MIN_WIDTH')) ?? 300,
 
-  enable_cpu_temps: penv('ENABLE_CPU_TEMPS') === 'true',
+  enable_cpu_temps: true,
   cpu_widget_grow: numNull(penv('CPU_WIDGET_GROW')) ?? 4,
   cpu_widget_min_width: numNull(penv('CPU_WIDGET_MIN_WIDTH')) ?? 500,
   cpu_shown_datapoints: numNull(penv('CPU_SHOWN_DATAPOINTS')) ?? 20,

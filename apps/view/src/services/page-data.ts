@@ -23,7 +23,11 @@ export const usePageData = () => {
   const config = serverInfo?.config;
 
   useEffect(() => {
-    const socket = io(environment.backendUrl);
+    const socket = io(environment.backendUrl, 
+      // {path: '/admin/ts4/socket.io',
+      //  'transports': ['websocket', ]
+      // }
+      );
 
     socket.on('static-info', data => {
       setServerInfo(data);
@@ -45,7 +49,11 @@ export const usePageData = () => {
   useEffect(() => {
     let socket: Socket | undefined;
     if (config) {
-      socket = io(environment.backendUrl);
+      socket = io(environment.backendUrl, 
+        // {path: '/admin/ts4/socket.io',
+        //  'transports': ['websocket']
+        // }
+        );
 
       socket.on('cpu-load', data => {
         setCpuLoad(oldData => {
